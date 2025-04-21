@@ -12,9 +12,16 @@ async function fetchUser() {
   return user
 }
 
+const repoCache = new Map()
+
 async function fetchRepoDetails(owner: string, name: string) {
+  const key = `${owner}/${name}`
+  if (repoCache.has(key)) {
+    return repoCache.get(key)
+  }
   const octokit = getOctokitInstance()
   const { data } = await octokit.request('GET /repos/{owner}/{name}', { owner, name })
+  repoCache.set(key, data)
   return data
 }
 

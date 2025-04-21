@@ -27,7 +27,7 @@ export function App() {
     throw new Error('Failed to fetch contributions')
   }
 
-  const { user, prs } = contributions!
+  const { user, prs } = contributions
   const userUrl = `https://github.com/${user?.username}`
 
   return (
