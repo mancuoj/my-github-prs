@@ -24,17 +24,17 @@ export function PrItem({ pr }: { pr: PullRequest }) {
       </a>
       <div className="flex-1 flex justify-between gap-3 md:gap-4 min-w-0">
         <div className="flex flex-col gap-1 min-w-0 sm:gap-1.5">
-          <div className="inline-flex items-center gap-1 sm:gap-1.5 text-sm sm:text-base">
+          <a href={pr.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 sm:gap-1.5 text-sm sm:text-base">
             {stateIcon[pr.state]}
             <span className="truncate hover:underline">{pr.title}</span>
-          </div>
+          </a>
           <div className="flex gap-2.5 text-xs sm:text-sm">
             <a href={`https://github.com/${pr.repo}`} target="_blank" rel="noopener noreferrer" className="inline-flex gap-1 truncate text-muted-foreground">
               <span className="opacity-75">{pr.repo.split('/')[0]}</span>
               <span className="opacity-50">/</span>
               <span className="truncate">{pr.repo.split('/')[1]}</span>
             </a>
-            <p className="hidden sm:inline-flex gap-1 items-center hover:text-primary">
+            <p className="hidden sm:inline-flex gap-0.5 items-center hover:text-primary">
               <span className="iconify carbon--star size-3 shrink-0" />
               {formatStars(pr.stars)}
             </p>

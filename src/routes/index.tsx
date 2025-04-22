@@ -34,10 +34,12 @@ export function App() {
     <div className="relative font-sans antialiased">
       <div className="max-w-3xl mx-auto p-6 md:p-10">
         <div className="flex flex-col items-center">
-          <Avatar className="size-14">
-            <AvatarImage src={user.avatar} />
-            <AvatarFallback>{user.name.slice(0, 2)}</AvatarFallback>
-          </Avatar>
+          <a href={userUrl} target="_blank" rel="noopener noreferrer">
+            <Avatar className="size-14">
+              <AvatarImage src={user.avatar} />
+              <AvatarFallback>{user.name.slice(0, 2)}</AvatarFallback>
+            </Avatar>
+          </a>
           <h1 className="text-lg font-bold mt-4">
             <a href={userUrl} target="_blank" rel="noopener noreferrer">
               {user.name}
@@ -60,7 +62,7 @@ export function App() {
           </div>
         </div>
         <Separator className="mt-4 mb-8" />
-        <div className="flex flex-col gap-6 md:gap-10">
+        <div className="flex flex-col gap-8 md:gap-10">
           {prs.map(pr => (
             <PrItem key={pr.url} pr={pr} />
           ))}
