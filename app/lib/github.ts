@@ -39,6 +39,7 @@ export async function fetchUserPrs() {
     q: `type:pr+author:"${user.username}"`,
     per_page: 50,
     page: 1,
+    advanced_search: 'true',
   })
   const filterPrs = data.items.filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at))
 

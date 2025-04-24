@@ -71,7 +71,7 @@ export default function Home() {
         </div>
         <TwScreenIndicator />
         <ScrollToTop />
-        {isFetching && <div className="fixed top-4 right-4 z-10 animate-spin iconify carbon--circle-dash size-5" />}
+        {isFetching ? <div className="fixed top-4 right-4 z-10 animate-spin iconify carbon--circle-dash size-5" /> : null}
       </div>
     </div>
   )
