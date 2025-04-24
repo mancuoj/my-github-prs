@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import '@fontsource-variable/dm-sans';
-@import '@fontsource-variable/source-serif-4';
-@import '@fontsource-variable/jetbrains-mono';
+@import '@fontsource-variable/lora';
+@import '@fontsource-variable/geist-mono';
 
 @plugin "@iconify/tailwind4" {
   prefixes: carbon;
@@ -47,8 +47,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans: 'DM Sans Variable', sans-serif;
-  --font-serif: 'Source Serif 4 Variable', serif;
-  --font-mono: 'JetBrains Mono Variable', monospace;
+  --font-serif: 'Lora Variable', serif;
+  --font-mono: 'Geist Mono Variable', monospace;
   --radius: 0.5rem;
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
@@ -110,8 +110,8 @@
   --sidebar-ring: oklch(0.54 0.18 288.03);
   --destructive-foreground: oklch(1 0 0);
   --font-sans: 'DM Sans Variable', sans-serif;
-  --font-serif: 'Source Serif 4 Variable', serif;
-  --font-mono: 'JetBrains Mono Variable', monospace;
+  --font-serif: 'Lora Variable', serif;
+  --font-mono: 'Geist Mono Variable', monospace;
   --shadow-color: hsl(240 30% 25%);
   --shadow-opacity: 0.12;
   --shadow-blur: 10px;
@@ -165,9 +165,9 @@
   --sidebar-ring: oklch(0.72 0.16 290.4);
   --destructive-foreground: oklch(1 0 0);
   --radius: 0.5rem;
-  --font-sans: Inter, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: JetBrains Mono, monospace;
+  --font-sans: 'DM Sans Variable', sans-serif;
+  --font-serif: 'Lora Variable', serif;
+  --font-mono: 'Geist Mono Variable', monospace;
   --shadow-color: hsl(240 30% 25%);
   --shadow-opacity: 0.12;
   --shadow-blur: 10px;

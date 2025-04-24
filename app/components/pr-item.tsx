@@ -1,4 +1,4 @@
-import type { PullRequest } from '@/types'
+import type { PullRequest } from '@/lib/types'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { formatStars } from '@/lib/utils'
 import { useTimeAgo } from '@shined/react-use'

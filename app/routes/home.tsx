@@ -5,27 +5,23 @@ import { TwScreenIndicator } from '@/components/tw-screen-indicator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { fetchUserPrs } from '@/hooks/use-contributions'
+import { fetchUserPrs } from '@/lib/github'
+import { useLoaderData } from 'react-router'
 
-import { useQuery } from '@tanstack/react-query'
+export function meta() {
+  return [
+    { title: 'My GitHub Pull Requests' },
+    { name: 'description', content: 'Mancuoj\'s GitHub Pull Requests' },
+  ]
+}
 
-export function App() {
-  const { data: contributions, isLoading } = useQuery({
-    queryKey: ['user-prs'],
-    queryFn: fetchUserPrs,
-  })
+export async function loader() {
+  const contributions = await fetchUserPrs()
+  return { contributions }
+}
 
-  if (isLoading) {
-    return (
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="iconify carbon--circle-dash size-10 animate-spin" />
-      </div>
-    )
-  }
-
-  if (!contributions) {
-    throw new Error('Failed to fetch contributions')
-  }
+export default function Home() {
+  const { contributions } = useLoaderData<typeof loader>()
 
   const { user, prs } = contributions
   const userUrl = `https://github.com/${user?.username}`
