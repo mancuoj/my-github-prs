@@ -1,5 +1,4 @@
 import type { PullRequest } from '@/lib/types'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { formatStars } from '@/lib/utils'
 import { useTimeAgo } from '@shined/react-use'
 import { LucideGitMerge, LucideGitPullRequestArrow, LucideGitPullRequestClosed, LucideGitPullRequestDraft } from 'lucide-react'
@@ -17,10 +16,7 @@ export function PrItem({ pr }: { pr: PullRequest }) {
   return (
     <div className="flex gap-4 items-center">
       <a href={`https://github.com/${pr.repo}`} target="_blank" rel="noopener noreferrer">
-        <Avatar className="size-9 sm:size-11 rounded shadow">
-          <AvatarImage src={`https://github.com/${pr.repo.split('/')[0]}.png`} />
-          <AvatarFallback>{pr.repo.split('/')[0].slice(0, 2)}</AvatarFallback>
-        </Avatar>
+        <img src={`https://github.com/${pr.repo.split('/')[0]}.png`} className="size-9 sm:size-11 rounded shadow" />
       </a>
       <div className="flex-1 flex justify-between gap-3 md:gap-4 min-w-0">
         <div className="flex flex-col gap-1 min-w-0 sm:gap-1.5">

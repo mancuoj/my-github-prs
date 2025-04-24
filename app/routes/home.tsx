@@ -2,7 +2,6 @@ import { PrItem } from '@/components/pr-item'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { TwScreenIndicator } from '@/components/tw-screen-indicator'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { fetchUserPrs } from '@/lib/github'
@@ -31,10 +30,7 @@ export default function Home() {
       <div className="max-w-3xl mx-auto p-6 md:p-10">
         <div className="flex flex-col items-center">
           <a href={userUrl} target="_blank" rel="noopener noreferrer">
-            <Avatar className="size-14">
-              <AvatarImage src={user.avatar} />
-              <AvatarFallback>{user.name.slice(0, 2)}</AvatarFallback>
-            </Avatar>
+            <img src={user.avatar} className="size-14 rounded-full" />
           </a>
           <h1 className="text-lg font-bold mt-4">
             <a href={userUrl} target="_blank" rel="noopener noreferrer">
