@@ -1,4 +1,5 @@
 import type { Contributions, PullRequest, User } from './types'
+import process from 'node:process'
 import { Octokit } from 'octokit'
 
 let octokitInstance: Octokit
@@ -6,7 +7,7 @@ let octokitInstance: Octokit
 export function getOctokitInstance() {
   if (!octokitInstance) {
     octokitInstance = new Octokit({
-      auth: import.meta.env.VITE_GITHUB_TOKEN,
+      auth: process.env.GITHUB_TOKEN,
     })
   }
   return octokitInstance
