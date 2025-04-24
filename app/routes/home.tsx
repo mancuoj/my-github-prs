@@ -5,6 +5,7 @@ import { TwScreenIndicator } from '@/components/tw-screen-indicator'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { fetchUserPrs } from '@/lib/github'
+import { useQuery } from '@tanstack/react-query'
 import { useLoaderData } from 'react-router'
 
 export function meta() {
@@ -20,7 +21,16 @@ export async function loader() {
 }
 
 export default function Home() {
-  const { contributions } = useLoaderData<typeof loader>()
+  const { contributions: initialData } = useLoaderData<typeof loader>()
+
+  const { data: contributions, isFetching } = useQuery({
+    queryKey: ['user-prs'],
+    queryFn: fetchUserPrs,
+    initialData,
+    refetchInterval: 1000 * 60 * 10,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  })
 
   const { user, prs } = contributions
   const userUrl = `https://github.com/${user?.username}`
@@ -61,6 +71,7 @@ export default function Home() {
         </div>
         <TwScreenIndicator />
         <ScrollToTop />
+        {isFetching && <div className="fixed top-4 right-4 z-10 animate-spin iconify carbon--circle-dash size-5" />}
       </div>
     </div>
   )

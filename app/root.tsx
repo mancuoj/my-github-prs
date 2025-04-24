@@ -1,7 +1,11 @@
 import type { Route } from './+types/root'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ThemeProvider } from 'next-themes'
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import '@/app.css'
+
+const queryClient = new QueryClient()
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -17,9 +21,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="font-sans antialiased relative">
-        <ThemeProvider attribute="class" storageKey="remix-tmpl-theme">
-          {children}
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider attribute="class" storageKey="remix-tmpl-theme">
+            {children}
+          </ThemeProvider>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
