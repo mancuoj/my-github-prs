@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator'
 import { fetchUserPrs } from '@/lib/github'
 import { useQuery } from '@tanstack/react-query'
 import { useLoaderData } from 'react-router'
+import type { Route } from './+types/home'
 
 export function meta() {
   return [
@@ -22,8 +23,7 @@ export async function loader() {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   const { initialData } = loaderData
-
-  const { data: contributions, isFetching } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ['user-prs'],
     queryFn: fetchUserPrs,
     initialData,
@@ -32,8 +32,8 @@ export default function Home({ loaderData }: Route.ComponentProps) {
     refetchOnWindowFocus: false,
   })
 
-  const { user, prs } = contributions
-  const userUrl = `https://github.com/${user?.username}`
+  const { user, prs } = data
+  const userUrl = `https://github.com/${user.username}`
 
   return (
     <div className="relative font-sans antialiased">
