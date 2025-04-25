@@ -1,3 +1,4 @@
+import type { Route } from './+types/home'
 import { PrItem } from '@/components/pr-item'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -6,8 +7,6 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { fetchUserPrs } from '@/lib/github'
 import { useQuery } from '@tanstack/react-query'
-import { useLoaderData } from 'react-router'
-import type { Route } from './+types/home'
 
 export function meta() {
   return [
@@ -23,6 +22,7 @@ export async function loader() {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   const { initialData } = loaderData
+
   const { data, isFetching } = useQuery({
     queryKey: ['user-prs'],
     queryFn: fetchUserPrs,
