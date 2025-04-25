@@ -19,6 +19,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <script defer src="https://a.mancuoj.me/script.js" data-website-id="74e29469-993e-4986-9913-c7f4077b0928"></script>
       </head>
       <body className="font-sans antialiased relative">
         <QueryClientProvider client={queryClient}>
