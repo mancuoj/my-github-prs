@@ -16,12 +16,12 @@ export function meta() {
 }
 
 export async function loader() {
-  const contributions = await fetchUserPrs()
-  return { contributions }
+  const initialData = await fetchUserPrs()
+  return { initialData }
 }
 
-export default function Home() {
-  const { contributions: initialData } = useLoaderData<typeof loader>()
+export default function Home({ loaderData }: Route.ComponentProps) {
+  const { initialData } = loaderData
 
   const { data: contributions, isFetching } = useQuery({
     queryKey: ['user-prs'],
