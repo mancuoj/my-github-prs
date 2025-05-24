@@ -15,7 +15,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <script defer src="https://a.mancuoj.me/script.js" data-website-id="23f1639a-1d40-4556-bbb6-4dbb2e9d508e" />
+        <script src="https://a.mancuoj.me/api/script.js" data-site-id="1" />
       </head>
       <body className="font-sans antialiased relative">
         <ThemeProvider attribute="class" storageKey="remix-tmpl-theme">
