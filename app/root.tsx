@@ -1,11 +1,7 @@
 import type { Route } from './+types/root'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ThemeProvider } from 'next-themes'
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import '@/app.css'
-
-const queryClient = new QueryClient()
 
 export const links: Route.LinksFunction = () => [
   { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -22,12 +18,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script defer src="https://a.mancuoj.me/script.js" data-website-id="23f1639a-1d40-4556-bbb6-4dbb2e9d508e" />
       </head>
       <body className="font-sans antialiased relative">
-        <QueryClientProvider client={queryClient}>
-          <ThemeProvider attribute="class" storageKey="remix-tmpl-theme">
-            {children}
-          </ThemeProvider>
-          <ReactQueryDevtools />
-        </QueryClientProvider>
+        <ThemeProvider attribute="class" storageKey="remix-tmpl-theme">
+          {children}
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
