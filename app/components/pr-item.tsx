@@ -12,11 +12,12 @@ const stateIcon = {
 
 export function PrItem({ pr }: { pr: PullRequest }) {
   const timeAgo = useTimeAgo(new Date(pr.created_at))
+  const [author, repo] = pr.repo.split('/')
 
   return (
     <div className="flex gap-4 items-center">
-      <a href={`https://github.com/${pr.repo}`} target="_blank" rel="noopener noreferrer">
-        <img src={`https://github.com/${pr.repo.split('/')[0]}.png`} className="size-9 sm:size-11 rounded shadow" />
+      <a href={`https://github.com/${author}`} target="_blank" rel="noopener noreferrer">
+        <img src={`https://github.com/${author}.png`} className="size-9 sm:size-11 rounded shadow" />
       </a>
       <div className="flex-1 flex justify-between gap-3 md:gap-4 min-w-0">
         <div className="flex flex-col gap-1 min-w-0 sm:gap-1.5">
@@ -26,9 +27,9 @@ export function PrItem({ pr }: { pr: PullRequest }) {
           </a>
           <div className="flex gap-2.5 text-xs sm:text-sm">
             <a href={`https://github.com/${pr.repo}`} target="_blank" rel="noopener noreferrer" className="inline-flex gap-1 truncate text-muted-foreground">
-              <span className="opacity-75">{pr.repo.split('/')[0]}</span>
+              <span className="opacity-75">{author}</span>
               <span className="opacity-50">/</span>
-              <span className="truncate">{pr.repo.split('/')[1]}</span>
+              <span className="truncate">{repo}</span>
             </a>
             <p className="hidden sm:inline-flex gap-0.5 items-center hover:text-primary">
               <span className="iconify carbon--star size-3 shrink-0" />
