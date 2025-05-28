@@ -1,7 +1,7 @@
 import type { PullRequest } from '@/lib/types'
-import { formatStars } from '@/lib/utils'
 import { useTimeAgo } from '@shined/react-use'
 import { LucideGitMerge, LucideGitPullRequestArrow, LucideGitPullRequestClosed, LucideGitPullRequestDraft } from 'lucide-react'
+import { formatStars } from '@/lib/utils'
 
 const stateIcon = {
   open: <LucideGitPullRequestArrow className="size-3.5 sm:size-4.5 text-green-400 shrink-0" />,

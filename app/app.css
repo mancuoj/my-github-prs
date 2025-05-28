@@ -109,9 +109,6 @@
   --sidebar-border: oklch(0.91 0.02 285.96);
   --sidebar-ring: oklch(0.54 0.18 288.03);
   --destructive-foreground: oklch(1 0 0);
-  --font-sans: 'DM Sans Variable', sans-serif;
-  --font-serif: 'Lora Variable', serif;
-  --font-mono: 'Geist Mono Variable', monospace;
   --shadow-color: hsl(240 30% 25%);
   --shadow-opacity: 0.12;
   --shadow-blur: 10px;
@@ -165,9 +162,6 @@
   --sidebar-ring: oklch(0.72 0.16 290.4);
   --destructive-foreground: oklch(1 0 0);
   --radius: 0.5rem;
-  --font-sans: 'DM Sans Variable', sans-serif;
-  --font-serif: 'Lora Variable', serif;
-  --font-mono: 'Geist Mono Variable', monospace;
   --shadow-color: hsl(240 30% 25%);
   --shadow-opacity: 0.12;
   --shadow-blur: 10px;
@@ -193,5 +187,54 @@
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
+  }
+}
+
+/* selection */
+::-moz-selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* view transition */
+::view-transition-group(root) {
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation-name: reveal-light;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  z-index: -1;
+  animation: none;
+}
+
+.dark::view-transition-new(root) {
+  animation-name: reveal-dark;
+}
+
+@keyframes reveal-dark {
+  from {
+    clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
+  }
+  to {
+    clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
+  }
+}
+
+@keyframes reveal-light {
+  from {
+    clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
+  }
+  to {
+    clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
   }
 }

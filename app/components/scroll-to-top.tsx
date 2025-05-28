@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils'
 import { useWindowScroll } from '@shined/react-use'
+import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 
 export function ScrollToTop() {
@@ -13,7 +13,7 @@ export function ScrollToTop() {
       className={cn(
         'fixed bottom-4 right-4 z-10 rounded-full',
         'transition-opacity duration-300',
-        y > 200 ? 'opacity-60 pointer-events-auto' : 'opacity-0 pointer-events-none',
+        y > 200 ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
       )}
     >
       <span className="iconify carbon--arrow-up size-4.5" />
