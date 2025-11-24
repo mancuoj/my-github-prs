@@ -10,11 +10,11 @@
   "dependencies": {
     "@react-router/node": "^7.9.6",
     "@react-router/serve": "^7.9.6",
-    "@shined/react-use": "^1.13.0",
+    "@shined/react-use": "^1.13.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "isbot": "^5.1.32",
-    "lucide-react": "^0.553.0",
+    "lucide-react": "^0.554.0",
     "next-themes": "^0.4.6",
     "octokit": "^5.0.5",
     "radix-ui": "latest",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
-    "@eslint-react/eslint-plugin": "^2.3.5",
+    "@eslint-react/eslint-plugin": "^2.3.7",
     "@fontsource-variable/dm-sans": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@fontsource-variable/lora": "^5.2.8",
@@ -35,7 +35,7 @@
     "@react-router/dev": "^7.9.6",
     "@tailwindcss/vite": "^4.1.17",
     "@types/node": "^24.10.1",
-    "@types/react": "^19.2.5",
+    "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",
     "eslint-plugin-format": "^1.0.2",
@@ -44,7 +44,7 @@
     "react-router-devtools": "^6.0.0",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
-    "vite": "^7.2.2",
+    "vite": "^7.2.4",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }
